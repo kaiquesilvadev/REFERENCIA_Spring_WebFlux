@@ -96,4 +96,31 @@ dessa maneira
 	<artifactId>spring-boot-starter-webflux</artifactId>
 </dependency>
 ```
+### Pré-requisitos para testar o projeto
 
+- Java Development Kit (JDK)
+- MongoDB em execução
+- IDE de sua escolha (recomendado: IntelliJ IDEA ou Spring Tool Suite)
+
+### Container Docker do MongoDB para desenvolvimento
+
+```
+docker run -d -p 27017:27017 -v /data/db --name mongo1 mongo:4.4.3-bionic
+```
+
+```
+docker exec -it mongo1 bash
+```
+## Recursos adicionais
+
+### Documentação MongoDB: query operators
+
+https://docs.mongodb.com/manual/reference/operator/query
+
+### Documentação Spring Data MongoDB
+
+https://docs.spring.io/spring-data/mongodb/docs/current/reference/html
+
+### Localização dos volumes Docker no Windows
+
+https://stackoverflow.com/questions/43181654/locating-data-volumes-in-docker-desktop-windows

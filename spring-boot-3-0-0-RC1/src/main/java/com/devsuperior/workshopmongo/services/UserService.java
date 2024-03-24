@@ -12,16 +12,16 @@ import com.devsuperior.workshopmongo.entities.User;
 import com.devsuperior.workshopmongo.repositories.UserRepository;
 import com.devsuperior.workshopmongo.services.exceptioons.ResourceNotFoundException;
 
+import reactor.core.publisher.Flux;
+
 @Service
 public class UserService {
 
 	@Autowired
 	private UserRepository repository;
 
-	@Transactional(readOnly = true)
-	public List<UserDTO> findAll() {
-		List<UserDTO> result = repository.findAll().stream().map(x -> new UserDTO(x)).toList();
-		return result;
+	public Flux<UserDTO> findAll() {
+		return repository.findAll().map(user -> new UserDTO(user));
 	}
 
 	@Transactional(readOnly = true)

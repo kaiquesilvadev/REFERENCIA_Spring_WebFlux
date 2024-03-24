@@ -1,5 +1,16 @@
-### Passo 1
-- Incluir ao final a dependência do  mongtodB -reactive
+# Reactive Backend using Spring Webflux and Mongodb
+>  Estudo de caso para implementar um backend reativo usando spring webflux e mongodb no projeto base dsposts
+
+#### Base repository
+
+- material oferecido pelo DevSuperior
+
+[Spring MongoDB Reference Project](https://github.com/devsuperior/spring-mongodb-ref)
+
+## passo a passo para implementar Spring Webflux
+
+- Passo 1
+Incluir ao final a dependência do  mongtodB -reactive 
 
 ```java
 <dependency>
@@ -8,7 +19,7 @@
 </dependency>
 ```
 
-- dessa maneira 
+dessa maneira 
 
 ```java
 <dependency>
@@ -17,9 +28,9 @@
 </dependency>
 ```
 
-### Passo 2
+- Passo 2
 
-- trocar a dependência do starter-web
+trocar a dependência do starter-web
 
 ```java
 <dependency>
@@ -28,7 +39,7 @@
 </dependency>
 ```
 
-- dessa maneira
+dessa maneira
 
 ```java
 <dependency>

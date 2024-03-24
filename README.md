@@ -12,9 +12,7 @@ Spring Webflux é um framework reativo oferecido pela plataforma Spring que perm
 
 > O diagrama de classes apresenta a estrutura do projeto e as relações entre as diferentes classes e entidades. Ele fornece uma visão visual do design da aplicação e ajuda a entender como as partes do sistema interagem entre si
 
-
-
-![UML]([https://github.com/kaiquesilvadev/DSCommerce/blob/main/print/uml.png](https://github.com/kaiquesilvadev/REFERENCIA_Spring_WebFlux/blob/main/assets/model-spring-mongodb.png))
+![UML](https://github.com/kaiquesilvadev/REFERENCIA_Spring_WebFlux/blob/main/assets/model-spring-mongodb.png)
 
 # Endpoints Disponíveis do projeto
 

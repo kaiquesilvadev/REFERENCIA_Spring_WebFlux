@@ -1,7 +1,6 @@
 package com.devsuperior.workshopmongo.services;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +30,9 @@ public class PostService {
 				.map(postFound -> new PostDTO(postFound));
 	}
 	
-	public List<PostDTO> fullSearch(String text, Instant minDate, Instant maxDate) {
-		maxDate = maxDate.plusSeconds(86400); // 24 * 60 * 60
-		List<PostDTO> result = repository.fullSearch(text, minDate, maxDate).stream().map(x -> new PostDTO(x)).toList();
-		return result;
+	public Flux<PostDTO> fullSearch(String text, Instant minDate, Instant maxDate) {
+		maxDate = maxDate.plusSeconds(86400);
+		return repository.fullSearch(text, minDate, maxDate)
+				.map(postFound -> new PostDTO(postFound));
 	}
 }

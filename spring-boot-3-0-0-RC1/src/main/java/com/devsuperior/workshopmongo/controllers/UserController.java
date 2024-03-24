@@ -56,8 +56,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        service.delete(id);
-        return ResponseEntity.noContent().build();
-    }
+	public Mono<ResponseEntity<Void>> delete(@PathVariable String id) {
+		return service.delete(id).then(Mono.just(ResponseEntity.noContent().<Void>build()));
+	}
 }

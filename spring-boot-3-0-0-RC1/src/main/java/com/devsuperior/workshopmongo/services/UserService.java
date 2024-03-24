@@ -13,6 +13,7 @@ import com.devsuperior.workshopmongo.repositories.UserRepository;
 import com.devsuperior.workshopmongo.services.exceptioons.ResourceNotFoundException;
 
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class UserService {
@@ -24,10 +25,10 @@ public class UserService {
 		return repository.findAll().map(user -> new UserDTO(user));
 	}
 
-	@Transactional(readOnly = true)
-	public UserDTO findById(String id) {
-		User user = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Recurso não encontrado"));
-		return new UserDTO(user);
+	public Mono<UserDTO> findById(String id) {
+		return repository.findById(id)
+				.map(existingUser -> new UserDTO(existingUser))
+				.switchIfEmpty(Mono.error(new ResourceNotFoundException("Recurso não encontrado")));
 	}
 
 	@Transactional(readOnly = true)

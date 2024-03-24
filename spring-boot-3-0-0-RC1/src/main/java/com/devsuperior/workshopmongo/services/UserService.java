@@ -38,12 +38,11 @@ public class UserService {
 		return result;
 	}
 
-	@Transactional
-	public UserDTO insert(UserDTO dto) {
+	public Mono<UserDTO> insert(UserDTO dto) {
 		User entity = new User();
 		copyDtoToEntity(dto, entity);
-		entity = repository.save(entity);
-		return new UserDTO(entity);
+		Mono<UserDTO> result = repository.save(entity).map(user -> new UserDTO(user));
+		return result;
 	}
 
 	@Transactional
